@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C binaries and executables (from your OS lab files)
+*.exe
+*.out
+*.o
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE settings
+.vscode/
+
+# Large Data files (Optional: uncomment if you don't want to upload raw data)data/realtor-data.zip.csv
+data/
