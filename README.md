@@ -14,6 +14,16 @@ Real estate datasets often suffer from high missingness (over 25% in features li
 - **Data-Leakage Prevention:** Strict isolation of training transformations from test/production sets via custom `BaseEstimator` and `TransformerMixin` classes[cite: 3, 6].
 - **Logarithmic Target Scaling:** Inverting predictions into dollar evaluations to manage extreme multi-million dollar property outliers[cite: 1, 8].
 
+
+## 📊 Dataset Reference
+The dataset used for training and evaluating this model is the **USA Real Estate Dataset**. 
+Due to GitHub repository size optimizations, the raw data is stored externally. You can download the source file directly from the link below:
+
+👉 **[Download Dataset from Kaggle](https://kaggle.com)**
+*Place the downloaded `realtor-data.zip.csv` inside a localized `data/` directory to run the training workflows.*
+
+
+
 ---
 
 ## 🏗️ Repository Structure
