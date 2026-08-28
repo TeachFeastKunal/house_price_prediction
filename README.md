@@ -97,6 +97,22 @@ The prototype experiment in the Jupyter Notebook achieved a headline metric of *
 * **Inherent Market Variance from Imputation:** Imputing missing square footage using regional medians (`State + City` $\rightarrow$ `State` $\rightarrow$ `Global`) provides a robust baseline, but cannot capture custom interior dimensions perfectly[cite: 3]. Evaluating across the entire noisy, real-world population introduces natural variance.
 * **Production Reliability Over Headline Metrics:** The final pipeline sacrifices nominal metric points in exchange for a production-grade system that handles imperfect, uncleaned real-world inputs without crashing or rejecting requests[cite: 3, 6].
 
+
+## ⚠️ Limitations & Future Work
+
+While the pipeline is built for high reliability and zero runtime crashes, several real-world constraints remain:
+
+### Known Limitations
+1. **Variance in Imputed Physical Attributes**: Approximately 25% of listings omit square footage (`house_size`). While 3-tier geographic median imputation (`State + City` $\rightarrow$ `State` $\rightarrow$ `Global`) provides realistic estimates, it inherently adds prediction variance compared to properties with verified square footage.
+2. **High-End Luxury Residuals**: Property valuation above the 98th percentile exhibits wide dispersion due to architectural uniqueness, custom finishes, and lot amenities that tabular datasets cannot capture.
+3. **Absence of Macro-Economic & Temporal Trends**: Mortgage interest rates, inflation markers, and seasonal housing demand cycles are not currently modeled in the static feature space.
+
+### Next Steps & Enhancements
+- [ ] **Hyper-Local Zip Code Embeddings**: Implement target encoding with Bayesian smoothing at the 5-digit ZIP level to capture intra-city neighborhood premiums.
+- [ ] **External Feature Enrichment**: Ingest census-tract demographic data, school district ratings, and local walkability scores.
+- [ ] **REST API Deployment**: Wrap the serialized `pipeline.joblib` into a lightweight FastAPI service containerized via Docker for real-time inference.
+
+
 ---
 
 ## 🚀 Execution Guide
